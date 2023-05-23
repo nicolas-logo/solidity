@@ -1,0 +1,21 @@
+{
+  "name": "logo-contract",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@truffle/contract": "^4.6.22",
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.5",
+    "lite-server": "^2.6.1"
+  }
+}

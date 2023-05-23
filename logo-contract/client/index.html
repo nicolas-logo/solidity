@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./libs/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./main.css">
+    <title>Tasks App</title>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-body rouded-0 mb-4 bg-dark">
+                    <h1>Tasks App</h1>
+                    <h6 class="text-muted">Decentralized App</h6>
+                    <span>Wallet</span>
+                    <i class="bi bi-wallet2">  <span id="wallet-id"></span></i>
+                </div>
+                <form id="task-form" class="card card-body rouded-0 bg-dark">
+                    <h4>Create New Task</h4>
+                    <input 
+                        type="text" 
+                        name="title"
+                        placeholder="Task title" 
+                        class="form-control bg-dark text-white rouded-0 border-0 my-4" />
+                    <textarea 
+                        rows="2"
+                        name="description"
+                        placeholder="Task description" 
+                        class="form-control bg-dark text-white rouded-0 border-0 my-4"></textarea>
+                    <button type="submit" class=" form-control btn btn-success">Save</button>
+                </form>
+            </div>
+            <div id="task-list" class="col-md-8">
+                
+            </div>
+        </div>
+    </div>
+    <!-- scripts-->
+    <script src="./libs/@truffle/contract/browser-dist/truffle-contract.min.js"></script>
+    <script src="./app.js"></script>
+    <script src="./ui.js"></script>
+</body>
+</html>
