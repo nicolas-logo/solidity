@@ -23,12 +23,18 @@ contract TasksContract {
         bool done
     );
 
+    event TaskDeleted(
+        uint256 id,
+        bool _deleted
+    );
+
     // structs
     struct Task {
         uint256 id;
         string title;
         string description;
         bool done;
+        bool _deleted;
         uint256 createdAt;
     }
 
@@ -38,7 +44,7 @@ contract TasksContract {
 
     function createTask(string memory _title, string memory _description) public {
         taskCounter++;
-        tasks[taskCounter] = Task(taskCounter, _title, _description, false, block.timestamp);
+        tasks[taskCounter] = Task(taskCounter, _title, _description, false, false, block.timestamp);
 
         emit TaskCreated(
             tasks[taskCounter].id, 
@@ -55,5 +61,13 @@ contract TasksContract {
         tasks[_id] = _task;
 
         emit TaskToggleDone(_task.id, _task.done);
+    }
+
+    function deleteTask(uint _id) public {
+        Task memory _task = tasks[_id];
+        _task._deleted = true;
+        tasks[_id] = _task;
+
+        emit TaskDeleted(_task.id, _task._deleted);
     }
 }

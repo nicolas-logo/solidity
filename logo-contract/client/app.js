@@ -52,8 +52,10 @@ App = {
         const taskCounter = taskCounterResult.toNumber();
 
         for (let i = taskCounter; i >= 1; i--) {
-            const task = await App.tasksContract.tasks(i);
-            const taskCard =
+            const task = await App.tasksContract.tasks(i);debugger;
+            
+            if (!task._deleted) {
+                const taskCard =
                 `
                 <div class="card bg-dark mb-2">
                     <div class="card-header d-flex justify-content-between align-items-center">
@@ -68,18 +70,26 @@ App = {
                         <span>${ task.description }</span>
                         <p class="text-muted">Created: ${new Date(task.createdAt * 1000)}</p>
                     </div>
+                    <div class="card-footer">
+                        <button class="btn btn-danger" onclick="App.deleteTask(${task.id})">Delete</button>
+                    </div>
                 </div>
                 `;
             
-            const taskList = document.querySelector("#task-list");
-            taskList.innerHTML += taskCard;
-            
+                const taskList = document.querySelector("#task-list");
+                taskList.innerHTML += taskCard;
+            }  
         }
         
     },
 
-    toggleTask: async (_id) => {debugger;
+    toggleTask: async (_id) => {
         await App.tasksContract.toggleDone(_id, { from: App.account });
+        document.location.reload();
+    },
+
+    deleteTask: async (_id) => {
+        await App.tasksContract.deleteTask(_id, { from: App.account });
         document.location.reload();
     },
 
