@@ -2,7 +2,7 @@
 Solidity App for creating To Do tasks.
 
 ### `prerequisites`
--You'll nedd to have instaled Ganache or similar, 
+-You'll nedd to have instaled Ganache or similar.
 -You'll also need Metamask installed on your browser.
 
 ### `truffle deploy`
